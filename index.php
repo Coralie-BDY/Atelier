@@ -1,9 +1,188 @@
 
 <?php
-require_once("inc/header.php");
+require_once("inc/init.php");
+
+
+// Verif de l'acces à la base de données  
+// $r = $pdo->query("SELECT * FROM cars");
+// $bddcars = $r->fetch(PDO::FETCH_ASSOC);
+// var_dump($bddcars);
+
+$r = $pdo->query("SELECT * FROM cars");
+  while($cars = $r->fetch(PDO::FETCH_ASSOC)) {
+  $content .=  "
+<div class=\"item\">
+   <div class=\"car-item\">
+      <div class=\"car-image\">
+         <img class=\"img-fluid\" src=\"$cars[imgs]\" style=\"height:10rem;\" alt=\"image de voiture\">
+         <div class='car-overlay-banner'>
+            <ul>
+               <li><a href=\"descriptif_vehicule.php?id_car=$cars[id_car]\"><i class='fa fa-link'></i></a></li>
+               <!--<li><a href=\"#\"><i class='fa fa-dashboard'></i></a></li>-->
+            </ul>
+         </div>
+      </div>
+      <div class=\"car-list\">
+         <ul class=\"list-inline\">
+            <li><i class=\"fa fa-registered\"></i> $cars[first_registration_car]</li>
+            <li><i class=\"fa fa-cog\"></i> NAN </li>
+            <li><i class=\"fa fa-dashboard\"></i> $cars[km]</li>
+         </ul>
+      </div>
+      <div class=\"car-content\">
+         <div class='star'><i class=\"fa fa-star orange-color\"></i><i class=\"fa fa-star orange-color\"></i><i class=\"fa fa-star orange-color\"></i><i class=\"fa fa-star orange-color\"></i><i class=\"fa fa-star-o orange-color\"></i></div>
+         <a href=\"descriptif_vehicule.php?id_car=$cars[id_car]\">$cars[model_car]</a>
+         <div class=\"separator\"></div>
+         <div class=\"price\"><span class=\"old-price\">$cars[old_selling_price]</span><span class=\"new-price\">$cars[selling_price]</span></div>
+      </div>
+   </div>
+</div>
+";
+}
+
 ?>
+
+
+
 <!--=================================
  header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="HTML5 Template" />
+<meta name="description" content="SH Auto - Achats et ventes de véhicules d'occasion" />
+<meta name="author" content="potenzaglobalsolutions.com" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>SH Auto - Achats et ventes de véhicules d'occasion</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.ico" />
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+<!-- flaticon -->
+<link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+
+<!-- mega menu -->
+<link rel="stylesheet" type="text/css" href="css/mega-menu/mega_menu.css" />
+
+<!-- font awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+<!-- owl-carousel -->
+<link rel="stylesheet" type="text/css" href="css/owl-carousel/owl.carousel.css" />
+
+<!-- magnific-popup -->
+<link rel="stylesheet" type="text/css" href="css/magnific-popup/magnific-popup.css" />
+
+<!-- revolution -->
+<link rel="stylesheet" type="text/css" href="revolution/css/settings.css" />
+
+<!-- main style -->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<!-- responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<!-- logo font -->
+<link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet">
+ 
+</head>
+
+<body>
+ 
+<!--=================================
+  loading -->
+  
+ <div id="loading">
+  <div id="loading-center">
+      <img src="images/loader.gif" alt="">
+ </div>
+</div>
+
+<!--=================================
+  loading -->
+
+
+<!--=================================
+ header -->
+
+<header id="header" class="defualt">
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="topbar-left text-lg-left text-center">
+           <ul class="list-inline">
+             <li> <i class="fa fa-envelope-o"> </i> contact@lethauto.com</li> 
+             <li> <i class="fa fa-clock-o"></i> Lun - Sam 9.00 - 19.00. Dim Fermé</li>
+           </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="topbar-right text-lg-right text-center">
+           <ul class="list-inline">
+             <li> <i class="fa fa-phone"></i> (+33) 7 82 14 81 41</li> 
+             <li><a href="https://www.facebook.com/sam.lethauto.39"><i class="fa fa-facebook"></i></a></li>   
+             <li><a href="https://www.instagram.com/sam.shauto/"><i class="fa fa-instagram"></i></a></li>
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!--=================================
+ mega menu -->
+
+<div class="menu">  
+  <!-- menu start -->
+   <nav id="menu" class="mega-menu">
+    <!-- menu list items container -->
+    <section class="menu-list-items">
+     <div class="container"> 
+      <div class="row"> 
+       <div class="col-md-12"> 
+        <!-- menu logo -->
+        <ul class="menu-logo">
+            <li>
+                <a href="index.php"><img id="logo_img" src="images/logo2.png" alt="logo" style="filter: brightness(0) invert(1);"> </a>
+                <p id="company-name" style="font-family: 'Sonsie One', cursive;color:white;text-align:center"> SH Auto </p>
+            </li>
+        </ul>
+        <!-- menu links -->
+        <ul class="menu-links">
+            <!-- active class -->
+            <li class="active"><a href="index.php"> Accueil</a>
+            </li>
+            <li><a href="listing-01.php">Voitures <i class="fa fa-angle-down fa-indicator"></i></a>
+                  <ul class="drop-down-multilevel">
+                    <li><a href="purchase.php">Achat</a></li>
+                    <li><a href="listing-01.php">Vente</a></li>
+                    <li><a href="car-demand.php">Demande précise</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.php"> Contact </a>
+            </li>
+            <li><a href="opinion.php">Avis </a> 
+            </li>
+            <li><a href="admin/index.php"> backoffice </a> 
+            </li>
+            </ul>
+           </div>
+          </div>
+         </div>
+        </section>
+       </nav>
+      <!-- menu end -->
+     </div>
+    </header>
+
 
 
 <!--=================================
@@ -379,45 +558,12 @@ require_once("inc/header.php");
 
 
       <!-- RENDRE CETTE PARTIE DYNAMIQUE -->
+
+      <?php 
+      echo $content;
+      ?>
       <!-- ALLER RECHERCHER EN BASE LES VOITURES RENTRÉES CES 2 DERNIERS MOIS ET DISPONIBLE (AVAILABILITY) -->
 
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/mt03/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/mt03.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2008</li><li><i class='fa fa-cog'></i> NAN </li><li><i class='fa fa-dashboard'></i> 28000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/mt03.html'>Yamaha MT-03 </a><div class='separator'></div><div class='price'><span class='old-price'>3690€</span><span class='new-price'>3500€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/yamahaTricity/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/yamahaTricity.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2015</li><li><i class='fa fa-cog'></i> NAN </li><li><i class='fa fa-dashboard'></i> 23000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/yamahaTricity.html'>Yamaha Tricity 125 </a><div class='separator'></div><div class='price'><span class='old-price'>1890€</span><span class='new-price'>1790€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/classeV220dAvantGarde/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/classeV220dAvantGarde.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2016</li><li><i class='fa fa-cog'></i> Automatique </li><li><i class='fa fa-dashboard'></i> 70000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/classeV220dAvantGarde.html'>Classe V220D 2.2 CDI </a><div class='separator'></div><div class='price'><span class='old-price'>35900€</span><span class='new-price'>34900€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/clio3Champagne/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/clio3Champagne.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2007</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 250 000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/clio3Champagne.html'>Clio 3 1.5 DCI 70 </a><div class='separator'></div><div class='price'><span class='old-price'>1990€</span><span class='new-price'>1790€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/c4Rouge/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/c4Rouge.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2008</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 220 000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/c4Rouge.html'>Citröen c4 1.6 HDI </a><div class='separator'></div><div class='price'><span class='old-price'>1990€</span><span class='new-price'>1890€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/c12017/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/c12017.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2017</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 36000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/c12017.html'>C1 1.0 VTi 68 Feel </a><div class='separator'></div><div class='price'><span class='old-price'>8290€</span><span class='new-price'>7990€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/207Plus/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/207Plus.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2013</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 117000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/207Plus.html'>207 +  </a><div class='separator'></div><div class='price'><span class='old-price'>5590€</span><span class='new-price'>5490€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/clio2Rxe/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/clio2Rxe.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2000</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 93000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/clio2Rxe.html'>Clio 2 1.2 RXE </a><div class='separator'></div><div class='price'><span class='old-price'>1890€</span><span class='new-price'>1790€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/206PlusTrendyGrey/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/206PlusTrendyGrey.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2010</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 36000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/206PlusTrendyGrey.html'>206+ 1.1 Trendy </a><div class='separator'></div><div class='price'><span class='old-price'>5190€</span><span class='new-price'>4890€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/jaguar/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/jaguar.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2009</li><li><i class='fa fa-cog'></i> Auto </li><li><i class='fa fa-dashboard'></i> 115000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/jaguar.html'>Jaguar XF S LUXE PREMIUM </a><div class='separator'></div><div class='price'><span class='old-price'>14900€</span><span class='new-price'>14500€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/rav4/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/rav4.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2010</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 140000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/rav4.html'>Toyota RAV4 2.2 D-4D </a><div class='separator'></div><div class='price'><span class='old-price'>8100€</span><span class='new-price'>7900€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/twingo3/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/twingo3.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2016</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 15000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/twingo3.html'>Twingo 3 1.0 SCe 71 cv </a><div class='separator'></div><div class='price'><span class='old-price'>7690€</span><span class='new-price'>7590€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/206PlusWhite/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/206PlusWhite.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2011</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 42 000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/206PlusWhite.html'>Peugeot 206 + 1.1 Urban </a><div class='separator'></div><div class='price'><span class='old-price'>4790€</span><span class='new-price'>4390€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/c1White/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/c1White.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2012</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 60 000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/c1White.html'>Citröen c1 1.0 Attraction </a><div class='separator'></div><div class='price'><span class='old-price'>3690€</span><span class='new-price'>3490€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/206Urban2011/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/206Urban2011.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2011</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 115 000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/206Urban2011.html'>Peugeot 206 + 1.1 Urban </a><div class='separator'></div><div class='price'><span class='old-price'>3590€</span><span class='new-price'>3390€</span></div></div></div></div>
-
-<div class='item'><div class='car-item text-center'><div class='car-image'><img class='img-fluid' src='images/detail/big/c1Red/1.jpg' alt=''><div class='car-overlay-banner'><ul> <li><a href='cars/c1Red.html'><i class='fa fa-link'></i></a></li><!--<li><a href='#'><i class='fa fa-dashboard'></i></a></li>--></ul></div></div><div class='car-list'><ul class='list-inline'><li><i class='fa fa-registered'></i> 2012</li><li><i class='fa fa-cog'></i> Manuelle </li><li><i class='fa fa-dashboard'></i> 60000</li></ul></div><div class='car-content'><div class='star'><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star orange-color'></i><i class='fa fa-star-o orange-color'></i></div><a href='cars/c1Red.html'>Citroën C1 1.0 Attraction </a><div class='separator'></div><div class='price'><span class='old-price'>4890€</span><span class='new-price'>4590€</span></div></div></div></div>
-
-     </div>
-    </div>
-   </div>
-  </div>
-  <div style="width:100%;text-align:center;margin-top:40px;"> <a style="background-color:rgba(0, 0, 0, 0.7);padding:17px;border:1px solid white;color:white" href="listing-01.html"> Voir plus de véhicules... </a> </div>
 </section>   
 
 <!--=================================

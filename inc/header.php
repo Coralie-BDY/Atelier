@@ -1,3 +1,7 @@
+<?php
+require_once("inc/init.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,3 +135,14 @@
       <!-- menu end -->
      </div>
     </header>
+
+     <section class="inner-intro bg-22 bg-overlay-black-70">
+  <div class="container">
+     <div class="row text-center intro-title">
+           <div class="col-md-6 text-md-left d-inline-block">
+             <h1 class="text-white">Notre parc </h1>
+           </div>
+           <div class="col-md-6 text-md-right float-right">
+     </div>
+  </div>
+  </section>
