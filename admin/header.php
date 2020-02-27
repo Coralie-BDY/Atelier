@@ -112,9 +112,10 @@
             <!-- active class -->
             <li class="active"><a href="gestion_clients.php"> Gestion clients</a>
             </li>
-            <li><a href="gestion_vehicules.php"> Gestion véhiucles </a>
+            <li><a href="gestion_vehicules.php">gestion véhicules </a>
+            <li><a href="listing_vehicule.php"> Listing véhicules </a>
             </li>
-            <li><a href="gestion_factures.php"> Gestion factures </a> 
+            <li><a href="facture.php"> Gestion factures </a> 
             </li>
             </ul>
            </div>
