@@ -126,7 +126,7 @@ if (isset($_POST['generer']) && !empty($_POST['generer'])) {
                 </div>
                 <?php } ?>
      <div class="form-row">
-                <input  type="submit" value="Créer facture" name="create">
+                <input  type="submit" value="Créer facture" name="create" >
             </div>
         </form>
     <?php }
@@ -137,8 +137,9 @@ if (isset($_POST['generer']) && !empty($_POST['generer'])) {
         if ($last_id > 0) { ?>
             <div class="alert alert-success" role="alert">
                 La facture a bien été ajouté à la base de données.
-                <input  type="button" value="établir facture" name="facture">
+
             </div>
+            
         <?php } else { ?>
             <div class="alert alert-danger" role="alert">
                 Un problème est survenu lors de l'ajout de la facture. Veuillez réessayer.

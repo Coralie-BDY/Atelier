@@ -113,9 +113,11 @@
             <li class="active"><a href="gestion_clients.php"> Gestion clients</a>
             </li>
             <li><a href="gestion_vehicules.php">gestion véhicules </a>
-            <li><a href="listing_vehicule.php"> Listing véhicules </a>
+            <li><a href="listing_vehicules.php"> Listing véhicules </a>
             </li>
             <li><a href="facture.php"> Gestion factures </a> 
+            </li>
+            <li><a href="listing_facture.php"> listing factures </a> 
             </li>
             </ul>
            </div>
