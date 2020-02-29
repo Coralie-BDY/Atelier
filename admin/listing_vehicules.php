@@ -17,7 +17,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "supprimer"){
 $r = $pdo->query("SELECT id_car, brand_car, model_car, motor, gearbox, cv_car,ch_car, first_registration_car, km FROM cars");
 
 $content .= "<table class='table'>";
-$content .= "<tr>";
+$content .= "<thead><tr>";
 // Ici je récupère les noms des columns pour les afficher dynamiquement
 for ($i=0; $i < $r->columnCount(); $i++) {
     $column = $r->getColumnMeta($i);
@@ -27,7 +27,8 @@ for ($i=0; $i < $r->columnCount(); $i++) {
 
 $content .= "<th> modification </th>";
 $content .= "<th> suppression </th>";
-$content .= "<th> facture </th></tr>";
+$content .= "</tr></thead>";
+$content .= "<tbody>";
 
 // Ici j'itère dans les différentes données pour alimenter mon tableau dynamiquement
 while($cars = $r->fetch(PDO::FETCH_ASSOC)) {
@@ -38,12 +39,11 @@ while($cars = $r->fetch(PDO::FETCH_ASSOC)) {
         }
     $content .= "<td> <a href=\"gestion_vehicules.php?action=modifier&id_car=$cars[id_car]\"> Modifier </a> </td>";
     $content .= "<td> <a href=\"?action=supprimer&id_car=$cars[id_car]\"> Supprimer </a> </td>";
-    $content .= "<td> <a href=\"?action=facture&id_car=$cars[id_car]\"> Editer </a> </td>";
     $content .= "</tr>";
 
         }
 
-    $content .= "</table>";
+    $content .= "</tbody></table>";
 
 
 ?>

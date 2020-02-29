@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +66,7 @@
 
 <header id="header" class="defualt">
 <div class="topbar">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="topbar-left text-lg-left text-center">
@@ -108,15 +110,15 @@
         <!-- menu links -->
         <ul class="menu-links">
             <!-- active class -->
-            <li class="active"><a href="listing_clients.php"> Listing clients</a>
+            <li class="active"><a href="gestion_clients.php"> Gestion clients</a>
             </li>
-            <li><a href="gestion_clients.php"> Gestion clients </a> 
+             <li><a href="listing_clients.php">Listing clients </a>
+            <li><a href="gestion_vehicules.php">Gestion véhicules </a></li>
+            <li><a href="listing_vehicules.php"> Listing véhicules </a>
             </li>
-            <li><a href="listing_vehicules.php"> Listing véhicules</a>
+            <li><a href="facture.php"> Gestion factures </a> 
             </li>
-            <li><a href="gestion_vehicules.php"> Gestion véhiucles </a>
-            </li>
-            <li><a href="gestion_factures.php"> Gestion factures </a> 
+            <li><a href="listing_facture.php"> listing factures </a> 
             </li>
             </ul>
            </div>

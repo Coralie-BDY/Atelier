@@ -119,6 +119,7 @@ require_once("inc/init.php");
                     <li><a href="purchase.php">Achat</a></li>
                     <li><a href="listing-01.php">Vente</a></li>
                     <li><a href="car-demand.php">Demande précise</a></li>
+
                 </ul>
             </li>
 
@@ -126,6 +127,7 @@ require_once("inc/init.php");
             </li>
             <li><a href="opinion.php">Avis </a> 
             </li>
+           <li><a href="connexion.php"> backoffice </a> 
             </ul>
            </div>
           </div>
@@ -139,9 +141,7 @@ require_once("inc/init.php");
      <section class="inner-intro bg-22 bg-overlay-black-70">
   <div class="container">
      <div class="row text-center intro-title">
-           <div class="col-md-6 text-md-left d-inline-block">
-             <h1 class="text-white">Notre parc </h1>
-           </div>
+           
            <div class="col-md-6 text-md-right float-right">
      </div>
   </div>
