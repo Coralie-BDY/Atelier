@@ -27,7 +27,7 @@ for ($i= 0; $i < $total_clients ; $i++) {
 
     <form method="POST" action="">
 
-        
+      <div class=container>  
 
       <div class="form-row">
 
@@ -36,25 +36,28 @@ for ($i= 0; $i < $total_clients ; $i++) {
                 <select   name="id_car" class="form-control" id="id_car">
                     <?php while($car=$r->fetch(PDO::FETCH_ASSOC)){?>
                     <option value="<?php echo $car['id_car']?>"><?php echo $car['id_car']?> - <?php echo $car['brand_car'] . " " . $car['model_car']?></option>
-                <?php } ?>
-            </select>
+                 <?php } ?>
+                </select>
             </div>
 
-<div class="form-group col-md-5">
+          <div class="form-group col-md-5">
                 <label for="id_client">Client</label>
                 <select   name="id_client" class="form-control" id="id_client">
                    <?php while($client=$req->fetch(PDO::FETCH_ASSOC)){?>
                     <option value="<?php echo $client['id_client']?>"><?php echo $client['first_name'] . " " . $client['last_name']?></option>
-                <?php } ?>
-            </select>
+                    <?php } ?>
+                </select>
             </div>
         </div>
+
   <div class="form-row">
 
     <input type="submit" value="Générer facture" name="generer">
 
-     </div>
-    </form>
+ </div> 
+</form>
+
+
 <div class='row'>
 
     <p>Entrer le client dans la base : <a href="gestion_clients.php">GESTION CLIENT</a> !</p>
@@ -86,10 +89,12 @@ if (isset($_POST['generer']) && !empty($_POST['generer'])) {
                 <label for="">date de facturation</label>
                 <input type="date" name="data_invoice">
             </div>
+
             <div class="form-group col-md-3">
                 <label for="">TOTAL</label>
                 <input type="number" name="total">
             </div>
+
             <div class="form-group col-md-3">
                 <label for="way_of_payement">moyens de paiement</label>
                 <input type="text" name="way_of_payement">
@@ -99,34 +104,43 @@ if (isset($_POST['generer']) && !empty($_POST['generer'])) {
                 <label for="reprise">reprise</label>
                 <input type="text" name="reprise">
             </div>
+
             <div class="form-group col-md-3">
                 <label for="reprise_number">nombre de reprise</label>
                 <input type="text" name="reprise_number">
             </div>
+
             <div class="form-group col-md-3">
                 <label for="ttc_total">total ttc</label>
                 <input type="text" name="ttc_total">
             </div>
+
             <div class="form-group col-md-3">
                 <label for="warranty">garantie</label>
                 <input type="number" name="warranty">
             </div>
+
          </div>
-         <div class="form-row">       
+
+         <div class="form-row">  
+
                 <?php for ($i=1; $i<sizeof($column); $i++) { ?>
-                  <div class="form-group col-md-3">
-                    <label><?php echo $column[$i] ?></label>
-                    <input value="<?php echo $donnees_car[$i] ?>" name="<?php echo $column[$i] ?>">
-                 </div>
+
+             <div class="form-group col-md-3">
+                 <label><?php echo $column[$i] ?></label>
+                 <input value="<?php echo $donnees_car[$i] ?>" name="<?php echo $column[$i] ?>">
+             </div>
+
                 <?php }
                 for ($i=1; $i<sizeof($column_clients); $i++) { ?>
-                <div class="form-group col-md-3">
-                    <label><?php echo $column_clients[$i] ?></label>
-                    <input value="<?php echo $donnees_client[$i] ?>" name="<?php echo $column_clients[$i] ?>">  
-                </div>
+
+             <div class="form-group col-md-3">
+                 <label><?php echo $column_clients[$i] ?></label>
+                 <input value="<?php echo $donnees_client[$i] ?>" name="<?php echo $column_clients[$i] ?>">  
+             </div>
                 <?php } ?>
      <div class="form-row">
-                <input  type="submit" value="Créer facture" name="create" >
+                <input class=" btn btn-primary mb-1" type="submit" value="Créer facture" name="create" >
             </div>
         </form>
     <?php }
@@ -149,10 +163,9 @@ if (isset($_POST['generer']) && !empty($_POST['generer'])) {
 </div>
 
 
-      
-      
-
     </form>
+</div>
+
 
 
 <?php require_once('footer.php'); ?>

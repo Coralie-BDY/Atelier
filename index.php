@@ -10,7 +10,8 @@ require_once("inc/init.php");
 
 $r = $pdo->query("SELECT * FROM cars");
   while($cars = $r->fetch(PDO::FETCH_ASSOC)) {
-  $content .=  "
+  $content .= 
+  "
 <div class=\"item\">
    <div class=\"car-item\">
       <div class=\"car-image\">
@@ -468,7 +469,7 @@ $r = $pdo->query("SELECT * FROM cars");
     <div class="row">
       <div class="col-md-12">
          <div class="section-title">
-           <span>Bienvenue dans notre garage</span>
+           <span>Bienvenu dans notre garage</span>
            <h2>SH Auto</h2>
            <div class="separator"></div>
            <!--<p>Car Dealer is the best premium HTML5 Template. We provide everything you need to build an <strong>Amazing dealership website</strong>  developed especially for car sellers, dealers or auto motor retailers. You can use this template for creating website based on any framework and any language.</p> </div>-->

@@ -18,7 +18,7 @@ require_once("header.php");
 	</ul>
 
  Cela permettra de tenir à jour la base de données
-
+</p>
 
 <br>
 
