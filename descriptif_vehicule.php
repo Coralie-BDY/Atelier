@@ -28,7 +28,8 @@ while($cars = $r->fetch(PDO::FETCH_ASSOC)){ ?>
 <p><img  class='img-fluid' src= <?php echo $cars['imgs']?> >
 
 <div class='col-md-3'>
-                  <div class='car-price text-lg-right'><strong><?php  echo $cars['selling_price'] ?></strong><span>TTC</span></div>
+                  <div class='car-price text-lg-right'>
+                     <span class="old-price"> ancien prix : <?php  echo $cars['old_selling_price'] ?></span> <span> <strong><?php  echo $cars['selling_price'] ?></strong><span>TTC</span></div>
                </div>
                 <div class='row'>
                <div class='col-md-12'>

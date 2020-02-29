@@ -127,7 +127,7 @@ require_once("inc/init.php");
             </li>
             <li><a href="opinion.php">Avis </a> 
             </li>
-            <li><a href="admin/index.php"> backoffice </a>
+           <li><a href="connexion.php"> backoffice </a> 
             </ul>
            </div>
           </div>
