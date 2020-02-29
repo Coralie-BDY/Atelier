@@ -143,9 +143,8 @@ echo $content;
             <div class="col">
                 <label for="sexe">sexe</label>
                 <select name="sexe" id="sexe" class="form-control">
-                    <option value="m" <?php if($public == 'm') echo 'selected'; ?>>Homme</option>
-                    <option value="f" <?php if($public == 'f') echo 'selected'; ?>>Femme</option>
-                    <option value="mixte" <?php if($public == 'mixte') echo 'selected'; ?>>Mixte</option>
+                    <option value="m" <?php if($sexe == 'm') echo 'selected'; ?>>Homme</option>
+                    <option value="f" <?php if($sexe == 'f') echo 'selected'; ?>>Femme</option>
                 </select><br>
             </div>
         </div>

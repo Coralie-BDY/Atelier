@@ -19,7 +19,7 @@ if($_POST){
 	if($_POST['pseudo']=="admin" && $_POST['mdp']==="admin"){
 	// header("location:index.php");
 	
-	$content = '<li style ="list-style: none"; class="text-center"><a href="admin/index.php"> <strong> ENTREZ DANS LE BACKOFFICE </strong> </a></li>';
+	$content = '<li style ="list-style: none"; class="text-center mb-5"><a href="admin/index.php"> <strong> ENTREZ DANS LE BACKOFFICE </strong> </a></li>';
 	}
 
 $content .= $erreur;
