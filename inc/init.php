@@ -14,6 +14,4 @@ define("URL", "http://localhost/phpmysql/atelier");
 
 $content = '';
 
-//require_once('fonction.php');
-
 ?>
