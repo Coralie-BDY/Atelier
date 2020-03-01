@@ -1,7 +1,11 @@
 <?php
 
-// Connexion a la base de données
+// Connexion a la base de données PC
 $pdo = new PDO('mysql:host=localhost;dbname=shauto;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+// Connexion a la base de données MAC
+// $pdo = new PDO('mysql:host=localhost;dbname=shauto', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
 
 
 
