@@ -8,7 +8,7 @@ require_once("inc/init.php");
 // $bddcars = $r->fetch(PDO::FETCH_ASSOC);
 // var_dump($bddcars);
 
-$r = $pdo->query("SELECT * FROM cars");
+$r = $pdo->query("SELECT * FROM cars WHERE purchase_date >= (SELECT DATE_ADD(NOW(), INTERVAL -2 MONTH  ))");
   while($cars = $r->fetch(PDO::FETCH_ASSOC)) {
   $content .= 
   "
